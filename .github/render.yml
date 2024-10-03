@@ -1,6 +1,6 @@
 name: Deploy to Render
 
-on:
+on: 
     push:
       branches:
         - main
