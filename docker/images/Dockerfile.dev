@@ -38,7 +38,7 @@ RUN find . -type d -name "__pycache__" -exec rm -r {} + && \
 COPY --chmod=0755 scripts/wait-for-db.sh ./scripts/
 
 # Copy the init-testing-db.sh script and set execution permissions
-COPY --chmod=+x scripts/init-testing-db.sh ./scripts/
+COPY --chmod=0755 scripts/init-testing-db.sh ./scripts/
 
 # Copy files
 COPY rosemary/ ./rosemary
