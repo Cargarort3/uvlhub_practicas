@@ -19,16 +19,16 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image
-        run: docker build --build-arg VERSION_TAG=${{ github.event.release.tag_name }} -t alevarmun1us/natillas-hub:${{ github.event.release.tag_name }} -f docker/images/Dockerfile.prod .
+        run: docker build --build-arg VERSION_TAG=${{ github.event.release.tag_name }} -t alevarmun1us/natillas-hub-prueba:${{ github.event.release.tag_name }} -f docker/images/Dockerfile.prod .
         env:
           DOCKER_CLI_EXPERIMENTAL: enabled
 
       - name: Push Docker image to Docker Hub
-        run: docker push alevarmun1us/natillas-hub:${{ github.event.release.tag_name }}
+        run: docker push alevarmun1us/natillas-hub-prueba:${{ github.event.release.tag_name }}
 
       - name: Tag and push latest
         run: |
-          docker tag alevarmun1us/natillas-hub:${{ github.event.release.tag_name }} alevarmun1us/natillas-hub:latest
-          docker push alevarmun1us/natillas-hub:latest
+          docker tag alevarmun1us/natillas-hub-prueba:${{ github.event.release.tag_name }} alevarmun1us/natillas-hub-prueba:latest
+          docker push alevarmun1us/natillas-hub-prueba:latest
         env:
           DOCKER_CLI_EXPERIMENTAL: enabled
